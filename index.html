@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Get AI-powered outfit suggestions customized for your features and preferences.">
+    <meta name="keywords" content="fashion, outfit, AI stylist, personalized clothing suggestions">
+    <meta name="author" content="AI Outfit Stylist">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+    <title>Pik-Fit | AI-Powered Fashion Recommendations</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <header>
+            <h1>Pik-Fit</h1>
+            <p>Your personal AI-powered fashion companion.</p>
+        </header>
+
+        <main id="main-content">
+            <section class="welcome-message">
+                <h2>👋 Welcome to Your Personal Fashion Companion!</h2>
+                <p>Answer a few questions and upload a photo to receive AI-powered outfit suggestions tailored to your style, features, and weather conditions.</p>
+            </section>
+
+            <section class="input-section">
+                <h2>Get Your Outfit Suggestions</h2>
+                <form id="outfitForm" novalidate>
+                    
+                    <div class="form-group">
+                        <label for="weather">Current Weather:</label>
+                        <select id="weather" name="weather" required aria-required="true">
+                            <option value="" disabled selected>Select weather</option>
+                            <option value="sunny">Sunny</option>
+                            <option value="rainy">Rainy</option>
+                            <option value="cloudy">Cloudy</option>
+                            <option value="snowy">Snowy</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeOfDay">Time of Day:</label>
+                        <select id="timeOfDay" name="timeOfDay" required aria-required="true">
+                            <option value="" disabled selected>Select time of day</option>
+                            <option value="morning">Morning</option>
+                            <option value="afternoon">Afternoon</option>
+                            <option value="evening">Evening</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userImage">Upload Your Image (for Skin Tone Detection):</label>
+                        <input type="file" id="userImage" name="userImage" accept="image/jpeg,image/png,image/webp" required aria-describedby="imageHelp">
+                        <small id="imageHelp" class="form-help">
+                            Please upload a clear image of your face. The image will not be stored or shared.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hairColor">Select Your Hair Color:</label>
+                        <input type="color" id="hairColor" name="hairColor" value="#000000" required>
+                    </div>
+
+                    <button type="submit" aria-label="Get personalized outfit suggestions">Get Outfit Suggestions</button>
+                </form>
+
+                <div id="outfitImage" aria-live="polite" class="outfit-suggestions">
+                    <!-- AI-Generated Outfit Image Will Be Displayed Here -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; <span id="currentYear"></span> Pik-Fit. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript File (Async for Better Performance) -->
+    <script src="script.js" async></script>
+
+    <!-- Optional Script to Auto-Update Year -->
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
